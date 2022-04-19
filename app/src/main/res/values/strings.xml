@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Work Off Your In-N-Out</string>
+    <string name="choose_item_eaten">Choose item eaten:</string>
+    <string name="_300">300</string>
+    <string name="total_miles">%.1f</string>
+    <string name="total_calories">Total calories: %d</string>
+
+    <string-array name="sizes_array">
+        <item>Hamburger</item>
+        <item>Cheeseburger</item>
+        <item>Double-Double</item>
+        <item>French Fries</item>
+        <item>Milkshake</item>
+    </string-array>
+
+    <string name="running">Running</string>
+    <string name="bicycling">Bicycling</string>
+    <string name="yoga">Yoga</string>
+
+    <string name="total_minutes_running">Total minutes to run: </string>
+    <string name="total_minutes_bicycling">Total minutes to bike: </string>
+    <string name="total_minutes_yoga">Total minutes to practice yoga: </string>
+
+    <string name="settings">Settings</string>
+    <string name="pref_title_theme">Dark theme</string>
+    <string name="pref_description_theme">Turn on dark theme</string>
+    <string name="calculate">Calculate</string>
+    <string name="tip">Pro Tip!</string>
+    <string name="tip_message">Get your burger protein-style: replacing the buns with lettuce takes away 150 calories!</string>
+    <string name="ok">OK</string>
+    <string name="innout_logo">In-N-Out Logo</string>
+    <string name="error_message">This item cannot be made protein-style!</string>
+    <string name="error">Error</string>
+    <string name="protein_style">Protein Style?</string>
+
+</resources>

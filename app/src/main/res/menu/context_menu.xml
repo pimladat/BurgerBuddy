@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Context menu with exercise types-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/running"
+        android:title="@string/running">
+    </item>
+    <item android:id="@+id/bicycling"
+        android:title="@string/bicycling">
+    </item>
+    <item android:id="@+id/yoga"
+        android:title="@string/yoga">
+    </item>
+</menu>
