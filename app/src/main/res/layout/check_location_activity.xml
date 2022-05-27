@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CheckLocationActivity"
+    android:id="@+id/fragment_container_view">
+
+    <!--Displays location intro label-->
+    <TextView
+        android:id="@+id/location_label_text_view"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="According to your geo-coordinates, you are in:"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textStyle="bold"/>
+
+    <!--Displays user's state-->
+    <TextView
+        android:id="@+id/location_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="35dp"
+        android:textSize="60sp"
+        app:layout_constraintTop_toBottomOf="@id/location_label_text_view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textStyle="bold" />
+
+    <!--Displays message depending on if user's state has In-N-Out's-->
+    <TextView
+        android:id="@+id/innout_nearby_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/location_text_view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="40dp"
+        android:textStyle="bold"/>
+
+    <!--Displays animation-->
+    <ImageView
+        android:id="@+id/innout_animation"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:contentDescription="In-N-Out Animation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/innout_nearby_text_view"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="90dp"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

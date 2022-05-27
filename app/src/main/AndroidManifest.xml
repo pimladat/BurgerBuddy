@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zybooks.caloriecounter">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -9,10 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CalorieCounter">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
         <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/settings"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CheckLocationActivity"
+            android:exported="false"
+            android:label="CheckLocation"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"

@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gradient_spinner.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/innout_animation.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.36633663366336633" />
+        <entry key="app/src/main/res/layout/check_location_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/settings_activity.xml" value="0.11302083333333333" />
         <entry key="app/src/main/res/layout/spinner_item.xml" value="0.5821428571428572" />
         <entry key="app/src/main/res/menu/appbar_menu.xml" value="0.1" />

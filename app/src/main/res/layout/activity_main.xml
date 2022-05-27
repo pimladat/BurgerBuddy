@@ -9,13 +9,14 @@
     <!--Displays In-N-Out Logo-->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="350dp"
-        android:layout_height="250dp"
+        android:layout_width="275dp"
+        android:layout_height="200dp"
         android:src="@drawable/innout_logo"
         android:contentDescription="@string/innout_logo"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="70dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
         />
 
     <!--Displays spinner for food items-->
@@ -24,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="15dp"
         app:layout_constraintTop_toBottomOf="@id/item_eaten"/>
 
     <!--Text prompting user to choose an item-->
@@ -33,11 +34,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/choose_item_eaten"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:labelFor="@id/spinner_size"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@id/logo"
         android:textStyle="bold"
         />
@@ -48,10 +49,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/protein_style"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:labelFor="@id/protein_style_switch"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/spinner_size"
         android:textStyle="bold"
@@ -62,7 +63,7 @@
         android:id="@+id/protein_style_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintLeft_toRightOf="@id/protein_style_label"
         app:layout_constraintTop_toBottomOf="@id/spinner_size"
         />
@@ -73,11 +74,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_calories"
-        android:layout_marginTop="15dp"
-        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/protein_style_switch"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:textStyle="bold"/>
 
     <!--Displays total minutes of exercise needed-->
@@ -86,11 +87,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_minutes_running"
-        android:layout_marginTop="22dp"
-        android:textSize="22sp"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/total_calories_text_view"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:textStyle="bold"/>
 
     <!--Displays calculate button-->
@@ -98,14 +99,39 @@
         android:id="@+id/calc_button"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:text="@string/calculate"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:onClick="calculateClick"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/total_exercise_text_view" />
+
+    <TextView
+        android:id="@+id/check_location_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_location_prompt"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/calc_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="20dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/check_location_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:text="@string/check_location_button"
+        android:layout_marginTop="10dp"
+        android:onClick="checkLocation"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/check_location_text_view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

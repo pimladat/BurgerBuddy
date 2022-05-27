@@ -1,18 +1,32 @@
 package com.zybooks.caloriecounter
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
+import android.location.Location
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
+import com.google.android.gms.location.LocationServices
+import java.io.IOException
+import java.util.*
 
 
 private const val KEY_TOTAL_MINUTES = "totalMinutes"
 private const val KEY_EXERCISE = "exerciseType"
+const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,10 +34,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var totalExerciseTextView: TextView
     private lateinit var calculateButton: Button
     private lateinit var spinner: Spinner
+    private lateinit var checkLocationButton: Button
     private var totalMinutes = 0.0
     private var exerciseType = R.string.total_minutes_running
     private var caloriesEaten = 0
     private var itemEaten = ""
+    private lateinit var clickSound: MediaPlayer
+
 
     // Initialize calories for each food item
     val HAMBURGER_CALORIES = 390
@@ -41,7 +58,9 @@ class MainActivity : AppCompatActivity() {
         totalCaloriesTextView = findViewById(R.id.total_calories_text_view)
         totalExerciseTextView = findViewById(R.id.total_exercise_text_view)
         calculateButton = findViewById(R.id.calc_button)
+        checkLocationButton = findViewById(R.id.check_location_button)
         spinner = findViewById<Spinner>(R.id.spinner_size)
+        clickSound = MediaPlayer.create(this, R.raw.clicksoundeffect)
 
         // Create adapter for spinner that drops down into list of food items
         val adapter = ArrayAdapter.createFromResource(this, R.array.sizes_array, R.layout.spinner_item)
@@ -117,6 +136,10 @@ class MainActivity : AppCompatActivity() {
                 mySwitch.isChecked = false
             }
         }
+
+        //calculateButton.setOnClickListener {
+
+        //}
 
         if(savedInstanceState != null) {
             totalMinutes = savedInstanceState.getDouble(KEY_TOTAL_MINUTES)
@@ -194,10 +217,27 @@ class MainActivity : AppCompatActivity() {
      * Calls display total to display total minutes needed for each exercise and food item
      */
     fun calculateClick(view: View) {
+        clickSound.start()
         val calc = ExerciseCalculator(caloriesEaten, exerciseType)
         totalMinutes = calc.totalMinutes
         displayTotal()
     }
+
+    /**
+     * Calls new activity to
+     */
+
+    fun checkLocation(view: View) {
+        clickSound.start()
+        if (hasLocationPermission()) {
+            val intent = Intent(this, CheckLocationActivity::class.java)
+            startActivity(intent)
+        }
+        else {
+            Log.d(TAG, "Must allow location feature to check your state!")
+        }
+    }
+
 
     /**
      * Changes textview to display total minutes of exercise
@@ -208,4 +248,28 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-}
+        private fun hasLocationPermission(): Boolean {
+
+            // Request fine location permission if not already granted
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_DENIED
+            ) {
+                requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                return false
+            }
+            return true
+        }
+
+        private val requestPermissionLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                val intent = Intent(this, CheckLocationActivity::class.java)
+                startActivity(intent)
+            }
+        }
+    }
+
+

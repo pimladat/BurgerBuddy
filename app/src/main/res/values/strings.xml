@@ -33,4 +33,10 @@
     <string name="error">Error</string>
     <string name="protein_style">Protein Style?</string>
 
+    <string name="check_location_prompt">Does your state have an In-N-Out?</string>
+    <string name="check_location_button">Check my state!</string>
+
+    <string name="innout_nearby">Congratulations! Your state has multiple In-N-Out locations!</string>
+    <string name="no_innout_nearby">No In-N-Out near you. What about Shake Shack?</string>
+
 </resources>
