@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.os.Build.VERSION_CODES.R
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -27,7 +28,7 @@ class CheckLocationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(com.zybooks.caloriecounter.R.layout.check_location_activity)
 
-        locationTextView = findViewById(com.zybooks.caloriecounter.R.id.location_text_view)
+        locationTextView = findViewById(com.zybooks.caloriecounter. R.id.location_text_view)
         InNOutNearbyTextView = findViewById(com.zybooks.caloriecounter.R.id.innout_nearby_text_view)
 
         // Calls find location() to determine user's location and display their state
@@ -64,7 +65,7 @@ class CheckLocationActivity : AppCompatActivity() {
     /**
      * Reverse geocoding: finds US state based on given coordinates
      */
-    private fun checkUSState(location: Location) {
+     private fun checkUSState(location: Location) {
         // Instantiate geoCoder
         val geoCoder = Geocoder(baseContext, Locale.getDefault())
 
